@@ -1,12 +1,6 @@
 rootProject.name = "CaiNiaoWo"
 include ':app'
 include ':common'
-include ':course'
-include ':home'
-include ':login'
-include ':mine'
-include ':study'
 include ':livedatademo'
 include ':viewmodeldemo'
 include ':netdemo'
-include ':service'
