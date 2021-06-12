@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_notify"
+    app:startDestination="@id/notificationsFragment">
+
+    <fragment
+        android:id="@+id/notificationsDetailFragment"
+        android:name="com.cainiaowo.navigationdemo.ui.notifications.NotificationsDetailFragment"
+        android:label="NotificationsDetailFragment" />
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.cainiaowo.navigationdemo.ui.notifications.NotificationsFragment"
+        android:label="fragment_notifications"
+        tools:layout="@layout/fragment_notifications">
+        <action
+            android:id="@+id/action_notificationsFragment_to_notificationsDetailFragment2"
+            app:destination="@id/notificationsDetailFragment" />
+    </fragment>
+</navigation>
