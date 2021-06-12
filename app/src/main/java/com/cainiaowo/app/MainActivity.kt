@@ -1,13 +1,11 @@
 package com.cainiaowo.app
 
-import android.view.MenuItem
-import androidx.core.view.forEachIndexed
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import androidx.viewpager2.widget.ViewPager2
 import com.cainiaowo.app.databinding.ActivityMainBinding
 import com.cainiaowo.common.base.BaseActivity
+import com.cainiaowo.common.widget.BnvVp2Mediator
 import com.cainiaowo.course.CourseFragment
 import com.cainiaowo.home.HomeFragment
 import com.cainiaowo.mine.MineFragment
@@ -29,27 +27,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         mBinding.apply {
             // ViewPager2适配器
             vp2Main.adapter = MainViewPagerAdapter(this@MainActivity, fragments)
-            // ViewPager2切换页面关联到BottomNavigationView
-            vp2Main.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-                override fun onPageSelected(position: Int) {
-                    super.onPageSelected(position)
-                    bnvMain.selectedItemId = bnvMain.menu.getItem(position).itemId
-                }
-            })
 
-            // 存储menu item对应的index索引位置
-            val map = mutableMapOf<MenuItem, Int>()
-
-            bnvMain.menu.forEachIndexed { index, item ->
-                map[item] = index
-            }
-
-            // BottomNavigationView点击时切换ViewPager2中的fragment
-            bnvMain.setOnNavigationItemSelectedListener { item ->
-                vp2Main.currentItem =
-                    map[item] ?: error("bottomNavigationView的itemId${item.itemId}没有对应viewPager2的元素")
-                true
-            }
+            BnvVp2Mediator(bnvMain, vp2Main).attach()
         }
     }
 
