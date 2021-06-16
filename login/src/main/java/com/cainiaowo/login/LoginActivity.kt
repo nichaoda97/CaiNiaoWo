@@ -1,6 +1,7 @@
 package com.cainiaowo.login
 
 import androidx.activity.viewModels
+import com.blankj.utilcode.util.ToastUtils
 import com.cainiaowo.common.base.BaseActivity
 import com.cainiaowo.login.databinding.ActivityLoginBinding
 
@@ -17,6 +18,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
         super.initView()
         mBinding.apply {
             vm = viewModel
+            // 点击事件
+            toolbarLogin.setNavigationOnClickListener { finish() }
+            tvRegisterLogin.setOnClickListener { ToastUtils.showShort("点击了注册按钮,后端没有对应接口,只显示UI")}
         }
     }
 
