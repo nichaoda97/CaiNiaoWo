@@ -12,7 +12,7 @@ dependencies {
 
     implementation 'com.google.code.gson:gson:2.8.6'
 
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    api 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     // 一个好用的Android开源工具库
     api 'com.blankj:utilcodex:1.30.6'
