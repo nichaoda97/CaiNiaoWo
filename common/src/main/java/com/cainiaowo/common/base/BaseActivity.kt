@@ -65,7 +65,7 @@ abstract class BaseActivity<ActivityDataBinding : ViewDataBinding> : AppCompatAc
      * 扩展用于LiveData便捷写法的observe函数
      * [block] 响应change变化的逻辑块
      */
-    protected fun <T : Any> LiveData<T>.observe(block: (T?) -> Unit) {
+    protected inline fun <T : Any> LiveData<T>.observe(crossinline block: (T?) -> Unit) {
         this.observe(viewLifecycleOwner) { data ->
             block.invoke(data)
         }
