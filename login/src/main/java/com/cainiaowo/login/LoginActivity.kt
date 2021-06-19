@@ -1,16 +1,16 @@
 package com.cainiaowo.login
 
-import androidx.activity.viewModels
 import com.blankj.utilcode.util.ToastUtils
 import com.cainiaowo.common.base.BaseActivity
 import com.cainiaowo.login.databinding.ActivityLoginBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
  * 登录界面
  */
 class LoginActivity : BaseActivity<ActivityLoginBinding>() {
 
-    private val viewModel: LoginViewModel by viewModels { defaultViewModelProviderFactory }
+    private val viewModel: LoginViewModel by viewModel()
 
     override fun getLayoutRes() = R.layout.activity_login
 

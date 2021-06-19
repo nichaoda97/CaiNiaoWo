@@ -5,11 +5,12 @@ import android.view.View
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
 import com.blankj.utilcode.util.ToastUtils
+import com.cainiaowo.login.repo.ILoginResource
 
 /**
  * 登录界面逻辑的viewModel
  */
-class LoginViewModel : ViewModel() {
+class LoginViewModel(private val resource: ILoginResource) : ViewModel() {
 
     /**
      * 账号,密码的observable对象
