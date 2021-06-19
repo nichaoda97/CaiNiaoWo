@@ -1,6 +1,12 @@
 package com.cainiaowo.service.network
 
 import androidx.annotation.Keep
+import com.blankj.utilcode.util.GsonUtils
+import com.blankj.utilcode.util.LogUtils
+import com.cainiaowo.common.network.support.CaiNiaoUtils
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /**
  * 基础的网络返回数据结构
@@ -34,4 +40,57 @@ data class BaseCaiNiaoRsp(
 |502|读写数据库异常|
  */
     }
+}
+
+/**
+ * 这里表示网络请求成功并得到业务服务器的响应。至于业务成功失败,另一说
+ * 将BaseCaiNiaoRsp的对象转化为需要的对象类型,也就是将body.string转为entity
+ * @return 返回需要的类型对象,可能为null,如果json解析失败的话
+ */
+inline fun <reified T> BaseCaiNiaoRsp.toEntity(): T? {
+    if (data == null) {
+        LogUtils.e("Server Response Json Ok, But data=null, $code,$message")
+        return null
+    }
+    // gson不允许我们将json对象采用String,所以单独处理
+    if (T::class.java.isAssignableFrom(String::class.java)) {
+        return CaiNiaoUtils.decodeData(this.data) as T
+    }
+    return kotlin.runCatching {
+        GsonUtils.fromJson(CaiNiaoUtils.decodeData(this.data), T::class.java)
+    }.onFailure { e ->
+        e.printStackTrace()
+    }.getOrNull()
+}
+
+/**
+ * 接口请求成功,但是业务返回code不是1的情况,crossinline使用后不能跳出整个函数块
+ */
+@OptIn(ExperimentalContracts::class)
+inline fun BaseCaiNiaoRsp.onBizError(
+    crossinline block: (code: Int, message: String) -> Unit
+): BaseCaiNiaoRsp {
+    contract {
+        callsInPlace(block, InvocationKind.EXACTLY_ONCE)
+    }
+    if (code != BaseCaiNiaoRsp.SERVER_CODE_SUCCESS) {
+        block.invoke(code, message ?: "Error Message Null")
+    }
+    return this
+}
+
+/**
+ * 接口请求成功,且业务成功code == 1的情况
+ */
+@OptIn(ExperimentalContracts::class)
+inline fun <reified T> BaseCaiNiaoRsp.onBizOK(
+    crossinline action: (code: Int, data: T?, message: String?) -> Unit
+): BaseCaiNiaoRsp {
+    contract {
+        callsInPlace(action, InvocationKind.EXACTLY_ONCE)
+    }
+    if (code == BaseCaiNiaoRsp.SERVER_CODE_SUCCESS) {
+        action.invoke(code, this.toEntity<T>(), message)
+    }
+    return this
 }
