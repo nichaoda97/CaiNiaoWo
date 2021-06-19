@@ -13,13 +13,10 @@ import retrofit2.http.Query
  */
 interface ILoginService {
 
-    /**
-     * 使用协程
-     */
     @GET("accounts/phone/is/register")
-    suspend fun checkRegister(@Query("mobi") mobi: String): Call<BaseCaiNiaoRsp>
+    fun checkRegister(@Query("mobi") mobi: String): Call<BaseCaiNiaoRsp>
 
     @POST("accounts/course/10301/login")
-    suspend fun login(@Body reqBody: LoginReqBody): Call<BaseCaiNiaoRsp>
+    fun login(@Body reqBody: LoginReqBody): Call<BaseCaiNiaoRsp>
 
 }
