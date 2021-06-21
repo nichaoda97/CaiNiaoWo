@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="module_login">登录模块</string>
+
+    <string name="module_mine">我的模块</string>
+
 </resources>
