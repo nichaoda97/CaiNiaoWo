@@ -8,7 +8,7 @@ import com.cainiaowo.common.base.BaseActivity
 import com.cainiaowo.common.widget.BnvVp2Mediator
 import com.cainiaowo.course.CourseFragment
 import com.cainiaowo.home.HomeFragment
-import com.cainiaowo.mine.MineFragment
+import com.cainiaowo.mine.MineContainerFragment
 import com.cainiaowo.study.StudyFragment
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
@@ -24,7 +24,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         INDEX_HOME to HomeFragment(),
         INDEX_COURSE to CourseFragment(),
         INDEX_STUDY to StudyFragment(),
-        INDEX_MINE to MineFragment(),
+        INDEX_MINE to MineContainerFragment(),
     )
 
     override fun initView() {
@@ -33,13 +33,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             // ViewPager2适配器
             vp2Main.adapter = MainViewPagerAdapter(this@MainActivity, fragments)
 
-            BnvVp2Mediator(bnvMain, vp2Main).attach()
+            BnvVp2Mediator(bnvMain, vp2Main) { _, viewPager2 ->
+                // ViewPager2不滑动
+                viewPager2.isUserInputEnabled = false
+            }.attach()
         }
     }
 
-    override fun initConfig() {
-        super.initConfig()
-    }
 
     companion object {
         const val INDEX_HOME = 0    // HomeFragment对应的索引位置
