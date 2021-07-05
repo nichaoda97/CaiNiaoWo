@@ -1,21 +1,13 @@
 package com.cainiaowo.study
 
-import android.os.Bundle
-import android.view.View
-import androidx.databinding.ViewDataBinding
 import com.cainiaowo.common.base.BaseFragment
 import com.cainiaowo.study.databinding.FragmentStudyBinding
 
 /**
  * 学习中心
  */
-class StudyFragment : BaseFragment() {
-    override fun getLayoutRes(): Int {
-        return R.layout.fragment_study
-    }
+class StudyFragment : BaseFragment<FragmentStudyBinding>() {
 
-    override fun bindView(view: View, savedInstanceState: Bundle?): ViewDataBinding {
+    override fun getLayoutRes() = R.layout.fragment_study
 
-        return FragmentStudyBinding.bind(view)
-    }
 }

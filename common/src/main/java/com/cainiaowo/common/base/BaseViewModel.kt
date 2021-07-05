@@ -22,7 +22,7 @@ abstract class BaseViewModel : ViewModel() {
     /**
      * 协程网络请求
      */
-    fun serveLaunch(block: suspend CoroutineScope.() -> Unit) = viewModelScope.launch {
+    protected fun serveLaunch(block: suspend CoroutineScope.() -> Unit) = viewModelScope.launch {
         isLoading.value = true
         block.invoke(this)
         isLoading.value = false

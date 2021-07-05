@@ -12,11 +12,7 @@ import com.cainiaowo.common.ktx.viewLifecycleOwner
 /**
  * Activity抽象基类
  */
-abstract class BaseActivity<ActivityDataBinding : ViewDataBinding> : AppCompatActivity {
-
-    constructor() : super()
-
-    constructor(@LayoutRes layoutId: Int) : super(layoutId)
+abstract class BaseActivity<ActivityDataBinding : ViewDataBinding> : AppCompatActivity() {
 
     protected lateinit var mBinding: ActivityDataBinding
 

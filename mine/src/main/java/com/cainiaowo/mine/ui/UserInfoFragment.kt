@@ -11,14 +11,14 @@ import com.cainiaowo.mine.databinding.FragmentUserInfoBinding
 /**
  * 用户信息界面
  */
-class UserInfoFragment : BaseFragment() {
+class UserInfoFragment : BaseFragment<FragmentUserInfoBinding>() {
 
     private val args by navArgs<UserInfoFragmentArgs>()
 
     override fun getLayoutRes() = R.layout.fragment_user_info
 
-    override fun bindView(view: View, savedInstanceState: Bundle?) =
-        FragmentUserInfoBinding.bind(view).apply {
+    override fun initView(view: View, savedInstanceState: Bundle?) {
+        mBinding.apply {
 
             // Toolbar返回
             toolbarUserInfo.setNavigationOnClickListener {
@@ -34,5 +34,6 @@ class UserInfoFragment : BaseFragment() {
 
             info = args.info
         }
+    }
 
 }

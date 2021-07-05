@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
@@ -13,29 +14,23 @@ import com.blankj.utilcode.util.LogUtils
 /**
  * Fragment抽象基类
  */
-abstract class BaseFragment : Fragment {
+abstract class BaseFragment<FragmentDataBinding : ViewDataBinding> : Fragment() {
 
-    constructor() : super()
-
-    constructor(@LayoutRes layoutId: Int) : super(layoutId)
-
-    /**
-     * UI的ViewDataBinding对象
-     */
-    private var mBinding: ViewDataBinding? = null
+    protected lateinit var mBinding: FragmentDataBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(getLayoutRes(), container, false)
+        mBinding = DataBindingUtil.inflate(inflater, getLayoutRes(), container, false)
+        return mBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mBinding = bindView(view, savedInstanceState)
-        mBinding?.lifecycleOwner = viewLifecycleOwner
+        mBinding.lifecycleOwner = viewLifecycleOwner
+        initView(view, savedInstanceState)
         initConfig()
         initData()
     }
@@ -44,9 +39,11 @@ abstract class BaseFragment : Fragment {
     abstract fun getLayoutRes(): Int
 
     /**
-     * view和ViewDataBinding绑定
+     * 初始化view
      */
-    abstract fun bindView(view: View, savedInstanceState: Bundle?): ViewDataBinding
+    open fun initView(view: View, savedInstanceState: Bundle?) {
+        LogUtils.d("${this.javaClass.simpleName} 初始化 initView")
+    }
 
     /**
      * 初始化配置
@@ -64,7 +61,9 @@ abstract class BaseFragment : Fragment {
 
     override fun onDestroy() {
         super.onDestroy()
-        mBinding?.unbind()
+        if (this::mBinding.isInitialized) {
+            mBinding.unbind()
+        }
     }
 
     /**

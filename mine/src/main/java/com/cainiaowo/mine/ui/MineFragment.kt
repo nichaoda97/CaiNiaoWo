@@ -2,7 +2,6 @@ package com.cainiaowo.mine.ui
 
 import android.os.Bundle
 import android.view.View
-import androidx.databinding.ViewDataBinding
 import androidx.navigation.fragment.findNavController
 import com.alibaba.android.arouter.launcher.ARouter
 import com.cainiaowo.common.base.BaseFragment
@@ -14,7 +13,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 /**
  * 我的
  */
-class MineFragment : BaseFragment() {
+class MineFragment : BaseFragment<FragmentMineBinding>() {
 
     private val viewModel: MineViewModel by viewModel()
 
@@ -22,9 +21,9 @@ class MineFragment : BaseFragment() {
         return R.layout.fragment_mine
     }
 
-    override fun bindView(view: View, savedInstanceState: Bundle?): ViewDataBinding {
+    override fun initView(view: View, savedInstanceState: Bundle?) {
 
-        return FragmentMineBinding.bind(view).apply {
+        mBinding.apply {
             vm = viewModel
 
             // UI登出操作
