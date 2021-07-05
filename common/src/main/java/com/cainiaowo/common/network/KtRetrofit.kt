@@ -1,6 +1,7 @@
 package com.cainiaowo.common.network
 
 import com.cainiaowo.common.network.config.CaiNiaoInterceptor
+import com.cainiaowo.common.network.config.HostInterceptor
 import com.cainiaowo.common.network.config.KtHttpLogInterceptor
 import com.cainiaowo.common.network.config.LocalCookieJar
 import com.cainiaowo.common.network.support.LiveDataCallAdapterFactory
@@ -22,6 +23,7 @@ object KtRetrofit {
         .retryOnConnectionFailure(true)
         .followRedirects(false)
         .cookieJar(LocalCookieJar())
+        .addInterceptor(HostInterceptor())
         .addNetworkInterceptor(CaiNiaoInterceptor())
         .addNetworkInterceptor(KtHttpLogInterceptor {
             logLevel(KtHttpLogInterceptor.LogLevel.BODY)
