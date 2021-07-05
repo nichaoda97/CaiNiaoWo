@@ -16,9 +16,9 @@ class MineViewModel(private val resource: IMineResource) : BaseViewModel() {
     /**
      * 获取UserInfo
      */
-    fun getUserInfo(token: String?) {
-        serveLaunch {
-            resource.getUserInfo(token)
+    fun getUserInfo(token: String?) = serveLaunch {
+        token?.let {
+            resource.getUserInfo(it)
         }
     }
 }

@@ -2,6 +2,7 @@ package com.cainiaowo.common
 
 import android.app.Application
 import com.blankj.utilcode.util.LogUtils
+import com.tencent.mmkv.MMKV
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -23,6 +24,10 @@ abstract class BaseApplication : Application() {
 
             // modules()    // 依赖注入模块
         }
+
+        // MMKV初始化
+        MMKV.initialize(this@BaseApplication)
+
         initConfig()
         initData()
 

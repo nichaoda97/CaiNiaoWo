@@ -36,9 +36,11 @@ class MineFragment : BaseFragment() {
             // 使用navigation跳转到UserInfoFragment
             ivUserIconMine.setOnClickListener {
                 val userInfo = viewModel.liveUserInfo.value
-                userInfo?.let {
+                if (userInfo == null) {
+                    ARouter.getInstance().build("/login/login").navigation()
+                } else {
                     val action = MineFragmentDirections
-                        .actionMineFragmentToUserInfoFragment(it)
+                        .actionMineFragmentToUserInfoFragment(userInfo)
                     findNavController().navigate(action)
                 }
             }
