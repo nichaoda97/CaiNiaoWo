@@ -1,6 +1,7 @@
-package com.cainiaowo.course
+package com.cainiaowo.course.ui
 
 import com.cainiaowo.common.base.BaseFragment
+import com.cainiaowo.course.R
 import com.cainiaowo.course.databinding.FragmentCourseBinding
 
 /**

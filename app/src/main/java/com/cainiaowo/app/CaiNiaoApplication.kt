@@ -1,7 +1,7 @@
 package com.cainiaowo.app
 
 import com.alibaba.android.arouter.launcher.ARouter
-import com.cainiaowo.common.BaseApplication
+import com.cainiaowo.common.base.BaseApplication
 import com.cainiaowo.common.ktx.application
 import com.cainiaowo.login.moduleLogin
 import com.cainiaowo.mine.moduleMine

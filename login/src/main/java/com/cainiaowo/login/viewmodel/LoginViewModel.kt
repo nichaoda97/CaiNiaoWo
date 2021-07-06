@@ -1,4 +1,4 @@
-package com.cainiaowo.login
+package com.cainiaowo.login.viewmodel
 
 import android.content.Context
 import android.view.View

@@ -11,7 +11,7 @@
 
         <variable
             name="vm"
-            type="com.cainiaowo.mine.ui.MineViewModel" />
+            type="com.cainiaowo.mine.viewmodel.MineViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

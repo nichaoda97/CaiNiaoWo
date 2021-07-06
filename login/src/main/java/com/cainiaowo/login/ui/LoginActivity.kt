@@ -1,4 +1,4 @@
-package com.cainiaowo.login
+package com.cainiaowo.login.ui
 
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.blankj.utilcode.util.ToastUtils
@@ -6,6 +6,8 @@ import com.cainiaowo.common.base.BaseActivity
 import com.cainiaowo.common.ktx.context
 import com.cainiaowo.common.network.config.SP_KEY_USER_TOKEN
 import com.cainiaowo.common.utils.MMKVUtils
+import com.cainiaowo.login.viewmodel.LoginViewModel
+import com.cainiaowo.login.R
 import com.cainiaowo.login.databinding.ActivityLoginBinding
 import com.cainiaowo.login.network.RegisterRsp
 import com.cainiaowo.service.repo.CaiNiaoDbHelper

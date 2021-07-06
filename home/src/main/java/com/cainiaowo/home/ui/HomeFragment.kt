@@ -1,6 +1,7 @@
-package com.cainiaowo.home
+package com.cainiaowo.home.ui
 
 import com.cainiaowo.common.base.BaseFragment
+import com.cainiaowo.home.R
 import com.cainiaowo.home.databinding.FragmentHomeBinding
 
 /**

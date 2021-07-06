@@ -1,4 +1,4 @@
-package com.cainiaowo.common
+package com.cainiaowo.common.base
 
 import android.app.Application
 import com.blankj.utilcode.util.LogUtils

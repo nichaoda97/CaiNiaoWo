@@ -1,6 +1,6 @@
 package com.cainiaowo.login
 
-import com.cainiaowo.common.BaseApplication
+import com.cainiaowo.common.base.BaseApplication
 import org.koin.core.context.loadKoinModules
 
 class LoginApplication : BaseApplication() {

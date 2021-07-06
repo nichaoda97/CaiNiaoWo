@@ -7,6 +7,7 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.cainiaowo.common.base.BaseFragment
 import com.cainiaowo.mine.R
 import com.cainiaowo.mine.databinding.FragmentMineBinding
+import com.cainiaowo.mine.viewmodel.MineViewModel
 import com.cainiaowo.service.repo.CaiNiaoDbHelper
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

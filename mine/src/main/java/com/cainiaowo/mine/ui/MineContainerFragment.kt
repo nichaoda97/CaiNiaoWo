@@ -1,6 +1,7 @@
-package com.cainiaowo.mine
+package com.cainiaowo.mine.ui
 
 import com.cainiaowo.common.base.BaseFragment
+import com.cainiaowo.mine.R
 import com.cainiaowo.mine.databinding.FragmentContainerMineBinding
 
 /**

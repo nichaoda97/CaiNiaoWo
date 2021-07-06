@@ -5,7 +5,7 @@ import com.cainiaowo.common.utils.getBaseHost
 import com.cainiaowo.mine.network.IMineService
 import com.cainiaowo.mine.repo.IMineResource
 import com.cainiaowo.mine.repo.MineRepo
-import com.cainiaowo.mine.ui.MineViewModel
+import com.cainiaowo.mine.viewmodel.MineViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.parameter.parametersOf
 import org.koin.dsl.bind

@@ -1,4 +1,4 @@
-package com.cainiaowo.mine.ui
+package com.cainiaowo.mine.viewmodel
 
 import com.cainiaowo.common.base.BaseViewModel
 import com.cainiaowo.mine.repo.IMineResource

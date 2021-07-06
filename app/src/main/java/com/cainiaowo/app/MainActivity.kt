@@ -6,10 +6,10 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.cainiaowo.app.databinding.ActivityMainBinding
 import com.cainiaowo.common.base.BaseActivity
 import com.cainiaowo.common.widget.BnvVp2Mediator
-import com.cainiaowo.course.CourseFragment
-import com.cainiaowo.home.HomeFragment
-import com.cainiaowo.mine.MineContainerFragment
-import com.cainiaowo.study.StudyFragment
+import com.cainiaowo.course.ui.CourseFragment
+import com.cainiaowo.home.ui.HomeFragment
+import com.cainiaowo.mine.ui.MineContainerFragment
+import com.cainiaowo.study.ui.StudyFragment
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
