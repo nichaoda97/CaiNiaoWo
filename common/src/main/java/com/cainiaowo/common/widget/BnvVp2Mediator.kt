@@ -38,8 +38,13 @@ class BnvVp2Mediator(
 
         // BottomNavigationView点击时切换ViewPager2中的fragment
         bnv.setOnNavigationItemSelectedListener { item ->
-            vp2.currentItem =
-                map[item] ?: error("bottomNavigationView的itemId${item.itemId}没有对应viewPager2的元素")
+//            vp2.currentItem =
+//                map[item] ?: error("bottomNavigationView的itemId${item.itemId}没有对应viewPager2的元素")
+            // 取消点击BottomNavigationView时ViewPager2的滑动效果
+            vp2.setCurrentItem(
+                map[item] ?: error("bottomNavigationView的itemId${item.itemId}没有对应viewPager2的元素"),
+                false
+            )
             true
         }
     }
