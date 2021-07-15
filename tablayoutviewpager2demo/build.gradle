@@ -1,0 +1,14 @@
+plugins {
+    id 'com.android.application'
+}
+apply from: '../dependencies.gradle'
+
+android {
+    defaultConfig {
+        applicationId "com.cainiaowo.tablayoutviewpager2demo"
+    }
+}
+
+dependencies {
+
+}
