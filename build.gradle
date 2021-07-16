@@ -5,7 +5,7 @@ apply plugin: 'com.alibaba.arouter'
 buildscript {
 
     ext {
-        kotlin_version = "1.5.20"
+        kotlin_version = "1.5.21"
 
         compile_sdk_version = 30
         build_tools_version = "30.0.3"

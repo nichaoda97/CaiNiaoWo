@@ -31,8 +31,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         super.initView()
         mBinding.apply {
             // ViewPager2适配器
-            vp2Main.adapter = MainViewPagerAdapter(this@MainActivity, fragments)
-
+            vp2Main.adapter = MainViewPager2Adapter(this@MainActivity, fragments)
             BnvVp2Mediator(bnvMain, vp2Main) { _, viewPager2 ->
                 // ViewPager2不滑动
                 viewPager2.isUserInputEnabled = false
@@ -50,13 +49,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 }
 
 /**
- * 首页的ViewPager2适配器
+ * App主体部分的ViewPager2适配器
  */
-class MainViewPagerAdapter(
+class MainViewPager2Adapter(
     fragmentActivity: FragmentActivity,
     private val fragments: Map<Int, Fragment>
-) :
-    FragmentStateAdapter(fragmentActivity) {
+) : FragmentStateAdapter(fragmentActivity) {
 
     override fun getItemCount() = fragments.size
 
