@@ -125,37 +125,29 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/v_top_bg_study" />
 
+        <!--tabIndicatorColor 指示器颜色-->
+        <!--tabIndicatorHeight 指示器高度-->
+        <!--tabIndicatorFullWidth 设置为false 则指示器跟文本宽度一致-->
+        <!--tabUnboundedRipple 设置为true点击时会有一个水波纹效果-->
+        <!--tabGravity 可设置center或fill；center指的是居中显示，fill指的是沾满全屏。-->
+        <!--tabMode 可设置fixed和 scrollable；fixed：指的是固定tab；scrollable指的是tab可滑动。-->
+        <!--tabTextColor tab文字颜色-->
+        <!--tabSelectedTextColor 选中时的tab颜色-->
+
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tl_study"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@id/rv_study"
+            app:layout_constraintBottom_toTopOf="@id/viewPager2"
             app:layout_constraintTop_toTopOf="@id/v_center_bg_study"
             app:tabIndicatorFullWidth="false"
-            app:tabIndicatorGravity="bottom">
+            app:tabIndicatorGravity="bottom" />
 
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="最近学习" />
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="我的课程" />
-
-        </com.google.android.material.tabs.TabLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_study"
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@color/colorWindowBackground"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="@id/v_center_bg_study"
-            app:layout_constraintTop_toBottomOf="@id/tl_study"
-            tools:listitem="@layout/item_course_study" />
-
+            app:layout_constraintTop_toBottomOf="@id/tl_study" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
