@@ -17,7 +17,7 @@ class StudiedAdapter :
         setImageSrcCompat(holder.getView(R.id.iv_badge_item_study), item.getDetailImgUrl())
         holder.setText(R.id.tv_title_item_study, item.name)
         holder.getView<NumberProgressBar>(R.id.npb_progress_item_study).progress =
-            item.progress.toInt()
+            (item.progress * 100).toInt()
     }
 }
 
