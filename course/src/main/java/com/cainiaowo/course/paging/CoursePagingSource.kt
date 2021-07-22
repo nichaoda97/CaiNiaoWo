@@ -17,11 +17,11 @@ import com.cainiaowo.service.network.onBizOK
  */
 class CoursePagingSource(
     private val service: ICourseService,
-    private val courseType: Int = -1,
-    private val code: String = "all",
-    private val difficulty: Int = -1,
-    private val isFree: Int = -1,
-    private val q: Int = -1,
+    private val courseType: Int,
+    private val code: String,
+    private val difficulty: Int,
+    private val isFree: Int,
+    private val q: Int,
 ) : PagingSource<Int, CourseListRsp.Course>() {
 
     override fun getRefreshKey(state: PagingState<Int, CourseListRsp.Course>): Int? {

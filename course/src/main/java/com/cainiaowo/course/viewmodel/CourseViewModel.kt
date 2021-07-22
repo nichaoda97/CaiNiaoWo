@@ -7,7 +7,6 @@ import androidx.paging.cachedIn
 import com.cainiaowo.common.base.BaseViewModel
 import com.cainiaowo.course.network.CourseCategoryRsp
 import com.cainiaowo.course.network.CourseListRsp
-import com.cainiaowo.course.paging.CoursePagerAdapter
 import com.cainiaowo.course.repo.ICourseResource
 import kotlinx.coroutines.flow.Flow
 
@@ -18,8 +17,6 @@ class CourseViewModel(private val resource: ICourseResource) : BaseViewModel() {
     fun getCourseCategory() = serveLaunch {
         resource.getCourseCategory()
     }
-
-    val adapter = CoursePagerAdapter()
 
     /**
      * [courseType] 类型 (-1 全部) (1 普通课程) (2 职业课程/班级课程) (3 实战课程) 默认 -1

@@ -12,7 +12,7 @@ import com.cainiaowo.course.network.CourseListRsp
 /**
  * RecyclerView适配器,需要继承PagingDataAdapter
  */
-class CoursePagerAdapter : PagingDataAdapter<CourseListRsp.Course, CourseViewHolder>(diffCallback) {
+class CoursePagingAdapter : PagingDataAdapter<CourseListRsp.Course, CourseViewHolder>(diffCallback) {
     override fun onBindViewHolder(holder: CourseViewHolder, position: Int) {
         getItem(position)?.let {
             holder.bind(it)
