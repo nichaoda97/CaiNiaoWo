@@ -1,5 +1,6 @@
 package com.cainiaowo.home.adapter
 
+import com.cainiaowo.common.webview.WebViewActivity
 import com.cainiaowo.home.R
 import com.cainiaowo.home.databinding.ItemJobCourseBinding
 import com.cainiaowo.home.network.JobCourseListRsp
@@ -18,6 +19,9 @@ class JobCourseAdapter(jobCourseList: MutableList<JobCourseListRsp.JobCourseItem
         holder: BaseDataBindingHolder<ItemJobCourseBinding>,
         item: JobCourseListRsp.JobCourseItem
     ) {
+        holder.itemView.setOnClickListener { view ->
+            WebViewActivity.openUrl(view.context, item.course?.h5site ?: "https://m.cniao5.com/")
+        }
         holder.dataBinding?.apply {
             url = item.course?.getDetailImgUrl()
             executePendingBindings()

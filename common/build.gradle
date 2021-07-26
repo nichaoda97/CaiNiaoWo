@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply from: '../dependencies.gradle'
+apply plugin: 'kotlin-android'
 
 android {
     // from dependencies.gradle
@@ -8,6 +9,10 @@ android {
 dependencies {
     // from dependencies.gradle
     implementation 'com.squareup.okhttp3:okhttp:4.9.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
 
     implementation 'com.google.code.gson:gson:2.8.6'
@@ -35,4 +40,7 @@ dependencies {
 
     // XPopup
     api 'com.github.li-xiaojun:XPopup:2.5.1'
+
+    // AgentWeb：WebView库,https://github.com/Justson/AgentWeb
+    implementation 'com.github.Justson.AgentWeb:agentweb-core:v4.1.9-androidx'
 }
