@@ -4,6 +4,7 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.cainiaowo.common.base.BaseApplication
 import com.cainiaowo.common.ktx.application
 import com.cainiaowo.course.moduleCourse
+import com.cainiaowo.home.moduleHome
 import com.cainiaowo.login.moduleLogin
 import com.cainiaowo.mine.moduleMine
 import com.cainiaowo.service.assistant.AssistantApp
@@ -22,7 +23,8 @@ class CaiNiaoApplication : BaseApplication() {
         moduleLogin,
         moduleMine,
         moduleStudy,
-        moduleCourse
+        moduleCourse,
+        moduleHome
     )
 
     override fun initConfig() {
