@@ -1,6 +1,7 @@
 package com.cainiaowo.home.adapter
 
 import android.graphics.Paint
+import com.cainiaowo.common.webview.WebViewActivity
 import com.cainiaowo.home.R
 import com.cainiaowo.home.databinding.ItemTeacherCourseBinding
 import com.cainiaowo.home.network.PopTeacherListRsp
@@ -22,6 +23,9 @@ class TeacherCourseAdapter(teacherCourseList: MutableList<PopTeacherListRsp.PopT
         holder.dataBinding?.apply {
             teacherItem = item
             tvOldPriceItemCourse.paintFlags += Paint.STRIKE_THRU_TEXT_FLAG
+            cardView.setOnClickListener { view->
+                WebViewActivity.openUrl(view.context, "https://m.cniao5.com/course/${item.teacher_course?.get(0)?.id}")
+            }
             executePendingBindings()
         }
     }

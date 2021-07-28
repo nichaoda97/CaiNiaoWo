@@ -1,6 +1,7 @@
 package com.cainiaowo.home.adapter
 
 import android.graphics.Paint
+import com.cainiaowo.common.webview.WebViewActivity
 import com.cainiaowo.home.R
 import com.cainiaowo.home.databinding.ItemNormalCourseBinding
 import com.cainiaowo.home.network.HomeCourseItem
@@ -23,6 +24,9 @@ class NormalCourseAdapter(normalCourseList: MutableList<HomeCourseItem>) :
             courseItem = item
             tvOldPriceItemCourse.paint.flags += Paint.STRIKE_THRU_TEXT_FLAG
             executePendingBindings()
+        }
+        holder.itemView.setOnClickListener { view ->
+            WebViewActivity.openUrl(view.context, "https://m.cniao5.com/course/${item.id}")
         }
     }
 }

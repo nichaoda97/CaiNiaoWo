@@ -6,13 +6,15 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.cainiaowo.common.webview.WebViewActivity
 import com.cainiaowo.course.databinding.ItemCourseBinding
 import com.cainiaowo.course.network.CourseListRsp
 
 /**
  * RecyclerView适配器,需要继承PagingDataAdapter
  */
-class CoursePagingAdapter : PagingDataAdapter<CourseListRsp.Course, CourseViewHolder>(diffCallback) {
+class CoursePagingAdapter :
+    PagingDataAdapter<CourseListRsp.Course, CourseViewHolder>(diffCallback) {
     override fun onBindViewHolder(holder: CourseViewHolder, position: Int) {
         getItem(position)?.let {
             holder.bind(it)
@@ -60,6 +62,9 @@ class CourseViewHolder(private val binding: ItemCourseBinding) :
     fun bind(course: CourseListRsp.Course) {
         binding.course = course
         binding.tvOldPriceItemCourse.paint.flags += Paint.STRIKE_THRU_TEXT_FLAG // 添加删除线
+        itemView.setOnClickListener { view ->
+            WebViewActivity.openUrl(view.context, "https://m.cniao5.com/course/${course.id}")
+        }
         binding.executePendingBindings()
     }
 

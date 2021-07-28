@@ -9,6 +9,7 @@
         <activity
             android:name=".webview.WebViewActivity"
             android:configChanges="orientation|screenSize"
-            android:hardwareAccelerated="true" />
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTop" />
     </application>
 </manifest>
