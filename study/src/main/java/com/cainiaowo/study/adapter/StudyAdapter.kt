@@ -46,7 +46,7 @@ class BoughtCourseAdapter :
         setImageSrcCompat(holder.getView(R.id.iv_badge_item_study), item.course?.getDetailImgUrl())
         holder.setText(R.id.tv_title_item_study, item.course?.name)
         holder.getView<NumberProgressBar>(R.id.npb_progress_item_study).progress =
-            (item.course?.progress ?: 0).toInt()
+            ((item.course?.progress ?: 0.0) * 100).toInt()
         holder.itemView.setOnClickListener {
             VideoActivity.openVideoActivity(
                 context,
