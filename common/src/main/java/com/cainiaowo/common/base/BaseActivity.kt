@@ -40,14 +40,14 @@ abstract class BaseActivity<ActivityDataBinding : ViewDataBinding> : AppCompatAc
      * 初始化配置
      */
     open fun initConfig() {
-        LogUtils.d("${this.javaClass.simpleName} 初始化 initConfig")
+//        LogUtils.d("${this.javaClass.simpleName} 初始化 initConfig")
     }
 
     /**
      * 初始化数据
      */
     open fun initData() {
-        LogUtils.d("${this.javaClass.simpleName} 初始化 initData")
+//        LogUtils.d("${this.javaClass.simpleName} 初始化 initData")
     }
 
     override fun onDestroy() {

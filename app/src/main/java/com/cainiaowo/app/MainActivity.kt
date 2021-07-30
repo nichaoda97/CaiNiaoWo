@@ -15,11 +15,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun getLayoutRes() = R.layout.activity_main
 
-    /**
-     * 使用这种方式可以复用Fragment
-     * 如果不想复用Fragment,泛型可以设置成<Int, ()->Fragment>,然后在value部分使用{XxxFragment()},
-     * 在MainViewPagerAdapter的createFragment中通过fragments[position]?.invoke()获取fragment实例
-     */
     private val fragments = mapOf<Int, Fragment>(
         INDEX_HOME to HomeFragment(),
         INDEX_COURSE to CourseFragment(),
@@ -32,6 +27,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         mBinding.apply {
             // ViewPager2适配器
             vp2Main.adapter = MainViewPager2Adapter(this@MainActivity, fragments)
+            vp2Main.offscreenPageLimit = 3
             BnvVp2Mediator(bnvMain, vp2Main) { _, viewPager2 ->
                 // ViewPager2不滑动
                 viewPager2.isUserInputEnabled = false
