@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicBoolean
 
 /**
  * 单事件响应的LiveData,只有一个接收者能接收到信息,可以避免不必要的业务的场景中的事件消费通知
- * 只有调用call的时候,Observer才能收到通知
+ * 调用call时可以将值置空
  */
 class SingleLiveData<T> : MutableLiveData<T>() {
 
