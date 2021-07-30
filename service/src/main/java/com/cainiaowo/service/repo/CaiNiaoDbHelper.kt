@@ -2,7 +2,7 @@ package com.cainiaowo.service.repo
 
 import android.content.Context
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
 /**
@@ -26,7 +26,7 @@ object CaiNiaoDbHelper {
      * 删除数据表中的userInfo信息,登出时使用
      */
     fun deleteUserInfo(context: Context) {
-        GlobalScope.launch(Dispatchers.IO) {
+        MainScope().launch(Dispatchers.IO) {
             getUserInfo(context)?.let { userInfo ->
                 CaiNiaoDatabase.getInstance(context).userDao.deleteUser(userInfo)
             }
@@ -37,7 +37,7 @@ object CaiNiaoDbHelper {
      * 新增用户数据到数据表,登录时使用
      */
     fun insertUserInfo(context: Context, user: CaiNiaoUserInfo) {
-        GlobalScope.launch(Dispatchers.IO) {
+        MainScope().launch(Dispatchers.IO) {
             CaiNiaoDatabase.getInstance(context).userDao.insertUser(user)
         }
     }

@@ -1,7 +1,5 @@
 package com.cainiaowo.login.viewmodel
 
-import android.content.Context
-import android.view.View
 import androidx.databinding.ObservableField
 import com.blankj.utilcode.util.ToastUtils
 import com.cainiaowo.common.base.BaseViewModel
@@ -50,15 +48,15 @@ class LoginViewModel(private val resource: ILoginResource) : BaseViewModel() {
         checkRegister(account)
     }
 
-    fun forget(v: View) {
+    fun forget() {
         ToastUtils.showShort("静态点击方式")
     }
 
-    fun wechat(context: Context) {
+    fun wechat() {
         ToastUtils.showShort("点击了微信登录")
     }
 
-    fun qq(v: View) {
+    fun qq() {
         ToastUtils.showShort("点击了QQ登录")
     }
 

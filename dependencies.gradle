@@ -43,8 +43,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = 1.8
-        targetCompatibility = 1.8
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 
     kotlinOptions {
@@ -68,8 +68,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation 'androidx.fragment:fragment-ktx:1.3.0'
-    implementation 'androidx.activity:activity-ktx:1.2.0'
+    implementation 'androidx.fragment:fragment-ktx:1.3.2'
+    implementation 'androidx.activity:activity-ktx:1.2.3'
     // endregion
 
     // region 协程
@@ -79,11 +79,11 @@ dependencies {
 
     // region JetPack
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata:2.3.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel:2.3.1'
     implementation 'androidx.lifecycle:lifecycle-runtime:2.3.1'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
     kapt "androidx.lifecycle:lifecycle-common-java8:2.3.1"
 
     implementation 'androidx.room:room-runtime:2.2.6'
@@ -92,9 +92,6 @@ dependencies {
     kapt "androidx.room:room-compiler:2.2.6"
 
     implementation 'androidx.paging:paging-runtime-ktx:3.0.0'
-
-    implementation 'androidx.work:work-runtime:2.5.0-alpha01'
-    implementation 'androidx.work:work-runtime-ktx:2.5.0-alpha01'
 
     // 注意配置navigation版本号的时候，project下的build.gradle的class path也需要同步navigation的版本号配置
     implementation "androidx.navigation:navigation-ui:$navigation_version"
@@ -114,10 +111,7 @@ dependencies {
 
     // region koin v3依赖注入:https://insert-koin.io/docs/setup/v3
     implementation "io.insert-koin:koin-core:$koin_version"
-    implementation "io.insert-koin:koin-core-ext:$koin_version"
-
     implementation "io.insert-koin:koin-android:$koin_version"
-    implementation "io.insert-koin:koin-android-ext:$koin_version"
 
     testImplementation "io.insert-koin:koin-test:$koin_version"
     // endregion

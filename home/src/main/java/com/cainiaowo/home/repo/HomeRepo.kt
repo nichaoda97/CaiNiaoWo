@@ -26,7 +26,7 @@ class HomeRepo(private val service: IHomeService) : IHomeResource {
         service.getBannerList()
             .serveData()
             .onSuccess {
-                onBizOK<BannerListRsp> { code, data, message ->
+                onBizOK<BannerListRsp> { _, data, _ ->
                     _liveBannerList.value = data
                     LogUtils.i("获取Banner列表 BizOK $data")
                     return@onBizOK
@@ -43,7 +43,7 @@ class HomeRepo(private val service: IHomeService) : IHomeResource {
         service.getPageModuleList()
             .serveData()
             .onSuccess {
-                onBizOK<PageModuleListRsp> { code, data, message ->
+                onBizOK<PageModuleListRsp> { _, data, _ ->
                     _livePageModuleList.value = data
                     LogUtils.i("获取首页模块分类 BizOK $data")
                     return@onBizOK

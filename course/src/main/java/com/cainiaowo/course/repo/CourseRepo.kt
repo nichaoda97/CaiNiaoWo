@@ -30,7 +30,7 @@ class CourseRepo(private val service: ICourseService) : ICourseResource {
                 onBizError { code, message ->
                     LogUtils.w("获取课程分类 BizError $code,$message")
                     return@onBizError
-                }.onBizOK<CourseCategoryRsp> { code, data, message ->
+                }.onBizOK<CourseCategoryRsp> { _, data, _ ->
                     _liveCourseCategory.value = data
                     LogUtils.i("获取课程分类 BizOK $data")
                     return@onBizOK

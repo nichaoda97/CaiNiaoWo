@@ -33,7 +33,7 @@ class StudyRepo(private val service: IStudyService) : IStudyResource {
                 onBizError { code, message ->
                     LogUtils.w("获取学习情况 BizError $code,$message")
                     return@onBizError
-                }.onBizOK<StudyInfoRsp> { code, data, message ->
+                }.onBizOK<StudyInfoRsp> { _, data, _ ->
                     _liveStudyInfo.value = data
                     LogUtils.i("获取学习情况 BizOK $data")
                     return@onBizOK
@@ -51,7 +51,7 @@ class StudyRepo(private val service: IStudyService) : IStudyResource {
                 onBizError { code, message ->
                     LogUtils.w("获取最近学习 BizError $code,$message")
                     return@onBizError
-                }.onBizOK<StudiedRsp> { code, data, message ->
+                }.onBizOK<StudiedRsp> { _, data, _ ->
                     _liveStudyList.value = data?.apply {
                         datas?.forEach {
                             // 由于服务端接口返回数据的img_url可能缺少https:协议,所以需要处理
@@ -74,7 +74,7 @@ class StudyRepo(private val service: IStudyService) : IStudyResource {
                 onBizError { code, message ->
                     LogUtils.w("获取我的课程 BizError $code,$message")
                     return@onBizError
-                }.onBizOK<BoughtRsp> { code, data, message ->
+                }.onBizOK<BoughtRsp> { _, data, _ ->
                     _liveBoughtList.value = data
                     LogUtils.i("获取我的课程 BizOK $data")
                     return@onBizOK

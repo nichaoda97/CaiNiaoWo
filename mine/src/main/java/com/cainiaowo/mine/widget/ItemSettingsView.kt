@@ -8,6 +8,7 @@ import android.view.MotionEvent
 import android.view.View
 import androidx.annotation.Keep
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.databinding.ObservableField
 import com.cainiaowo.mine.R
 import com.cainiaowo.mine.databinding.VItemSettingsBinding
@@ -44,7 +45,7 @@ class ItemSettingsView @JvmOverloads constructor(
             itemBean.title = getString(R.styleable.ItemSettingsView_title) ?: ""
             val titleRGB = getColor(
                 R.styleable.ItemSettingsView_titleColor,
-                resources.getColor(R.color.colorPrimaryText)
+                ContextCompat.getColor(context, R.color.colorPrimaryText)
             )
             itemBean.titleColor = titleRGB
             // desc设置
@@ -56,7 +57,7 @@ class ItemSettingsView @JvmOverloads constructor(
                 getResourceId(R.styleable.ItemSettingsView_arrow, R.drawable.ic_right)
             val arrowRGB = getColor(
                 R.styleable.ItemSettingsView_arrowColor,
-                resources.getColor(R.color.colorSecondaryText)
+                ContextCompat.getColor(context, R.color.colorSecondaryText)
             )
             itemBean.arrowColor = arrowRGB
         }

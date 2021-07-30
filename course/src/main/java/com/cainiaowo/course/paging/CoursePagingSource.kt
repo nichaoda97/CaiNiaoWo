@@ -44,7 +44,7 @@ class CoursePagingSource(
                         LogUtils.w("获取课程列表 BizError $code,$message")
                         loadResult = LoadResult.Error(Throwable(message))
                         return@onBizError
-                    }.onBizOK<CourseListRsp> { code, data, message ->
+                    }.onBizOK<CourseListRsp> { _, data, _ ->
                         LogUtils.i("获取课程列表 BizOK $data")
                         // 上一页的页数
                         val prevKey = if (page > 1) page - 1 else null

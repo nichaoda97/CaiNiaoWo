@@ -36,7 +36,7 @@ class LoginRepo(private val service: ILoginService) : ILoginResource {
                 onBizError { code, message ->
                     LogUtils.w("是否注册 BizError $code,$message")
                 }
-                onBizOK<RegisterRsp> { code, data, message ->
+                onBizOK<RegisterRsp> { _, data, _ ->
                     _registerRsp.value = data
                     LogUtils.i("是否注册 BizOK $data")
                     return@onBizOK
@@ -56,7 +56,7 @@ class LoginRepo(private val service: ILoginService) : ILoginResource {
                 onBizError { code, message ->
                     LogUtils.w("登录接口 BizError $code,$message")
                 }
-                onBizOK<LoginRsp> { code, data, message ->
+                onBizOK<LoginRsp> { _, data, _ ->
                     _loginRsp.value = data
                     LogUtils.i("登录接口 BizOK $data")
                     return@onBizOK

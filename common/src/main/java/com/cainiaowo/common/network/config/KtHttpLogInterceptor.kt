@@ -157,7 +157,7 @@ class KtHttpLogInterceptor(block: (KtHttpLogInterceptor.() -> Unit)? = null) : I
         kotlin.runCatching {
             // peek类似于clone数据流,不能直接用原来的body的string流数据作为日志,因为会消费掉IO,
             // 所以使用peek
-            val peekBody = response.peekBody(1024 * 1024)
+            val peekBody = response.peekBody(1024L * 1024L)
             sb.append("ResponseBody:${CaiNiaoUtils.unicodeDecode(peekBody.string())}\n")
         }.getOrNull()
     }

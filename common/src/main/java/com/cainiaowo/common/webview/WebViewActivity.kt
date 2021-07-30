@@ -6,8 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import com.cainiaowo.common.BuildConfig
 import com.cainiaowo.common.R
+import com.cainiaowo.common.ktx.context
 import com.just.agentweb.AgentWeb
 import com.just.agentweb.AgentWebView
 import com.just.agentweb.DefaultWebClient
@@ -27,7 +29,7 @@ class WebViewActivity : AppCompatActivity() {
                     ViewGroup.LayoutParams.MATCH_PARENT
                 )
             )
-            .useDefaultIndicator(resources.getColor(R.color.colorAccent))
+            .useDefaultIndicator(ContextCompat.getColor(context, R.color.colorAccent))
             .setMainFrameErrorView(R.layout.agentweb_error_page, -1)
             .setSecurityType(AgentWeb.SecurityType.STRICT_CHECK)
             .setOpenOtherPageWays(DefaultWebClient.OpenOtherPageWays.ASK)   // 打开其他应用时,弹窗咨询用户是否前往其他应用

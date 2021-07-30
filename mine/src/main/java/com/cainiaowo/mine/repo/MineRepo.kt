@@ -27,7 +27,7 @@ class MineRepo(private val service: IMineService) : IMineResource {
                 // 接口响应成功
                 onBizError { code, message ->
                     LogUtils.w("获取用户信息 BizError $code,$message")
-                }.onBizOK<UserInfoRsp> { code, data, message ->
+                }.onBizOK<UserInfoRsp> { _, data, _ ->
                     _liveUserInfo.value = data
                     LogUtils.i("获取用户信息 BizOK $data")
                     return@onBizOK
