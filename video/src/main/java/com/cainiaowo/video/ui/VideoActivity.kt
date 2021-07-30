@@ -31,7 +31,7 @@ class VideoActivity : BaseActivity<ActivityVideoBinding>() {
     private var title: String? = ""
 
     private val items = mutableListOf<Item>()
-    private val videoLessonAdapter = VideoLessonAdapter(items) { clickedItem ->
+    private val videoLessonAdapter = VideoLessonAdapter { clickedItem ->
         if (lastKey == clickedItem.key) return@VideoLessonAdapter
         lastKey = clickedItem.key
         title = clickedItem.title
