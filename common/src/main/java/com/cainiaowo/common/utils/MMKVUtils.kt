@@ -35,4 +35,7 @@ object MMKVUtils {
 
     fun getString(key: String, defValue: String? = null) = mmkv.getString(key, defValue)
 
+    fun remove(key: String) = mmkv.remove(key)
+
+    fun removeValue(key: String) = mmkv.removeValueForKey(key)
 }

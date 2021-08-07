@@ -5,6 +5,8 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.alibaba.android.arouter.launcher.ARouter
 import com.cainiaowo.common.base.BaseFragment
+import com.cainiaowo.common.network.config.SP_KEY_USER_TOKEN
+import com.cainiaowo.common.utils.MMKVUtils
 import com.cainiaowo.common.webview.WebViewActivity
 import com.cainiaowo.mine.R
 import com.cainiaowo.mine.databinding.FragmentMineBinding
@@ -31,6 +33,7 @@ class MineFragment : BaseFragment<FragmentMineBinding>() {
             // UI登出操作
             btnLogoutMine.setOnClickListener {
                 CaiNiaoDbHelper.deleteUserInfo(requireContext())
+                MMKVUtils.remove(SP_KEY_USER_TOKEN)
                 ARouter.getInstance().build("/login/login").navigation()
             }
 

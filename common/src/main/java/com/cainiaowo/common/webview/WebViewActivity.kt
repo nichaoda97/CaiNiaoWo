@@ -6,10 +6,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.ViewGroup
+import android.webkit.JavascriptInterface
 import androidx.core.content.ContextCompat
+import com.blankj.utilcode.util.LogUtils
 import com.cainiaowo.common.BuildConfig
 import com.cainiaowo.common.R
 import com.cainiaowo.common.ktx.context
+import com.cainiaowo.common.network.config.SP_KEY_USER_TOKEN
+import com.cainiaowo.common.utils.MMKVUtils
 import com.just.agentweb.AgentWeb
 import com.just.agentweb.AgentWebView
 import com.just.agentweb.DefaultWebClient
@@ -40,6 +44,10 @@ class WebViewActivity : AppCompatActivity() {
 
         val url = intent.getStringExtra("url")
         mAgentWeb.urlLoader.loadUrl(url)
+
+        // 添加JS调用native函数
+        mAgentWeb.jsInterfaceHolder.addJavaObject(JsAndroidApi.JS_CALL_APP_KEY, JsAndroidApi)
+
         // 开启WebView的调试
         AgentWebView.setWebContentsDebuggingEnabled(BuildConfig.DEBUG)
     }
@@ -66,5 +74,16 @@ class WebViewActivity : AppCompatActivity() {
                 it.putExtra("url", url)
             })
         }
+    }
+}
+
+object JsAndroidApi {
+
+    const val JS_CALL_APP_KEY = "cniaoApp"
+
+    @JavascriptInterface
+    fun getAppToken(): String {
+        LogUtils.w("JsAndroidApi 中 js调用了getToken")
+        return MMKVUtils.getString(SP_KEY_USER_TOKEN) ?: ""
     }
 }
